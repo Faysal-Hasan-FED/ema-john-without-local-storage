@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from 'react-rating';
 import './Product.css';
 
 const Product = (props) => {
@@ -12,7 +13,12 @@ const Product = (props) => {
             <p><small>By {seller}</small></p>
             <p><small>Only {stock} available in stock</small></p>
             <h2>Only $ {price}</h2>
-            <p>Rating: {star}</p>
+            <Rating
+               readonly
+               initialRating={star}
+            />
+
+            <br />
 
             <button onClick={()=>props.addToCart(props.product)}>Buy now</button>
             </div>

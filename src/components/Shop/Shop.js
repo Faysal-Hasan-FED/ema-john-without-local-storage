@@ -10,7 +10,7 @@ const Shop = () => {
         fetch('./products.JSON')
         .then(res => res.json())
         .then(data =>{
-            setProducts(data)
+            setProducts(data);
             setMatchedProducts(data)
         } )
     },[])
@@ -39,7 +39,6 @@ const Shop = () => {
     const [matchedProducts, setMatchedProducts] = useState([]);
 
     const handleSearch = event =>{
-        
         const searchedText = event.target.value;
         const matched = products.filter(product=> product.name.toLowerCase().includes(searchedText.toLowerCase()));
         setMatchedProducts(matched);
@@ -57,7 +56,7 @@ const Shop = () => {
         <div >
 
             {/* search functionality */}
-            <div style={{textAlign:'center',marginBottom:'10px'}}>
+            <div className='search-container'>
                 <input onChange={handleSearch} 
                 style={{width:'80%',padding:'3px'}} 
                 type="text" placeholder='search your product' />
